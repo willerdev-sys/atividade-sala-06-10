@@ -1,7 +1,6 @@
 ﻿int[]NumeroCand, votos, idades;
-int n, i, j;
+int n, i, j, m, voto;
 string[]nome;
-int candidato1 = 0, candidato2 = 0, candidato3 = 0, candidato4 = 0, candidato5 = 0, candidato6 = 0, candidato7 = 0, candidato8 = 0, candidato9 = 0;
 
 do
 {
@@ -11,7 +10,6 @@ do
 
 nome = new string[n];
 idades = new int[n];
-votos = new int[n];
 NumeroCand = new int[n];
 
 for (i=0; i < n; i++)
@@ -26,8 +24,23 @@ for (i=0; i < n; i++)
     NumeroCand[i] = int.Parse(Console.ReadLine());
 }
 
-for (i=0; i < NumeroCand.Length; i++)
+Console.WriteLine("informe a quantidade de eleitores irão votar");
+m = int.Parse(Console.ReadLine());
+
+votos = new int[n];
+
+for (i=0; i < m; i++)
 {
-    Console.WriteLine($"Informe a quantidade de votos desse candidato {i+1}: ");
-    votos[i] = int.Parse(Console.ReadLine());
+    Console.WriteLine($"Informe o numero do candidato que você irá votar {i+1}: ");
+    voto = int.Parse(Console.ReadLine());
+    for(j=0;j<n;j++)
+    if(voto == NumeroCand[j])
+    {
+        votos[j]++;
+    }
+}
+
+for (i=0; i<votos.Length;i++)
+{
+Console.WriteLine($"{votos[i]} - ");
 }
